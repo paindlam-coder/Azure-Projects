@@ -1,0 +1,36 @@
+name: Build and Push to ACR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: |
+            {
+              "clientId":"${{ secrets.AZURE_CLIENT_ID }}",
+              "clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}",
+              "subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}",
+              "tenantId":"${{ secrets.AZURE_TENANT_ID }}"
+            }
+
+      - name: Login to ACR
+        run: az acr login --name acrsai
+
+      - name: Build Docker Image
+        run: |
+          docker build -t acrsai.azurecr.io/azure-loader:v1 .
+
+      - name: Push Docker Image
+        run: |
+          docker push acrsai.azurecr.io/azure-loader:v1
