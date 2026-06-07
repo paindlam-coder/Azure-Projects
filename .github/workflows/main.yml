@@ -25,12 +25,12 @@ jobs:
             }
 
       - name: Login to ACR
-        run: az acr login --name acrsai
+        run: az acr login --name contregsrinidev2
 
       - name: Build Docker Image
         run: |
-          docker build -t acrsai.azurecr.io/azure-loader:v1 .
+          docker build -t contregsrinidev2.azurecr.io/azure-loader:v1 .
 
       - name: Push Docker Image
         run: |
-          docker push acrsai.azurecr.io/azure-loader:v1
+          docker push contregsrinidev2.azurecr.io/azure-loader:v1
