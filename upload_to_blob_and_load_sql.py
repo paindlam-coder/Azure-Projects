@@ -7,7 +7,7 @@ from azure.keyvault.secrets import SecretClient
 from azure.storage.blob import BlobServiceClient
 
 # Key Vault Name
-KEY_VAULT_NAME = "key-vault000"
+KEY_VAULT_NAME = "kvsrinidev2"
 
 KEY_VAULT_URL = f"https://{KEY_VAULT_NAME}.vault.azure.net/"
 
