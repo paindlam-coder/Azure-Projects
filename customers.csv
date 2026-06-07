@@ -1,0 +1,4 @@
+customer_id	name	email	status
+CUST1001	Ravi Kumar	ravi@example.com	Active
+CUST1002	Anita Sharma	anita@example.com	Inactive
+CUST1003	Suresh Reddy	suresh@example.com	Active
